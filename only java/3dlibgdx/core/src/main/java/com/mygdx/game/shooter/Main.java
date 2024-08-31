@@ -45,7 +45,7 @@ public class Main extends Game {
         loadingmodel= new loadingmodel();
         loadingScene = new LoadingScene();
         bulletTest = new BulletTest();
-        this.setScreen (bulletTest);
+        this.setScreen (loadingScene);
 
 
 //        cameracontroller =  new cameracontroller();

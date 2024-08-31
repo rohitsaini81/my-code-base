@@ -2,15 +2,20 @@ package com.mygdx.game.shooter.SCREENS;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
+import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.Bullet;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.game.shooter.Controls.thirdpersoncontrol;
 import net.mgsx.gltf.data.data.GLTFBuffer;
+import net.mgsx.gltf.loaders.glb.GLBAssetLoader;
+import net.mgsx.gltf.loaders.gltf.GLTFAssetLoader;
 import net.mgsx.gltf.loaders.gltf.GLTFLoader;
 import net.mgsx.gltf.scene3d.attributes.PBRCubemapAttribute;
 import net.mgsx.gltf.scene3d.attributes.PBRTextureAttribute;
@@ -23,10 +28,11 @@ import net.mgsx.gltf.scene3d.utils.IBLBuilder;
 
 public class LoadingScene implements Screen {
     private SceneManager sceneManager;
+    private AssetManager assetManager;
     private SceneAsset sceneAsset;
     private Scene scene;
     private Scene Ground;
-    private PerspectiveCamera camera;
+    public PerspectiveCamera camera;
     private Cubemap diffuseCubemap;
     private Cubemap environmentCubemap;
     private Cubemap specularCubemap;
@@ -34,7 +40,9 @@ public class LoadingScene implements Screen {
     private float time;
     private SceneSkybox skybox;
     private DirectionalLightEx light;
-    private FirstPersonCameraController cameraController;
+    private FirstPersonCameraController firstPersonCameraController;
+    private CameraInputController cameraInputController;
+    private thirdpersoncontrol mycontrol;
 
 
 
@@ -49,27 +57,25 @@ public class LoadingScene implements Screen {
 
 
     public LoadingScene(){
+        SceneAsset sceneAsset;
         modelBatch = new ModelBatch();
         sceneAsset = new GLTFLoader().load(Gdx.files.internal("models/1/Alien Slime.gltf"));
         scene = new Scene(sceneAsset.scene);
+//        scene.modelInstance.transform.setToTranslation(0,1,0);
         sceneAsset = new GLTFLoader().load(Gdx.files.internal("models/2/untitled.gltf"));
         Ground = new Scene(sceneAsset.scene);
         sceneManager = new SceneManager();
+//        sceneManager.addScene(scene);
+//        assetManager = new AssetManager();
+//        assetManager.setLoader(SceneAsset.class, ".gltf", new GLTFAssetLoader());
+//        assetManager.setLoader(SceneAsset.class, ".glb", new GLBAssetLoader());
+//        assetManager.load("models/1/Alien Slime.gltf", SceneAsset.class);
         sceneManager.addScene(scene);
         sceneManager.addScene(Ground);
 
-        // setup camera (The BoomBox model is very small so you may need to adapt camera settings for your scene)
-        camera = new PerspectiveCamera(60f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        float d = .02f;
-        camera.near = d / 5000f;
-//        camera.near = 500;
-        camera.far = 200;
-        sceneManager.setCamera(camera);
-        camera.position.set(0,0.5f, 4f);
-
-        cameraController = new FirstPersonCameraController(camera);
-        Gdx.input.setInputProcessor(cameraController);
-
+        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.update();
+//        sceneManager.setCamera(camera);
         // setup light
         light = new DirectionalLightEx();
         light.direction.set(1, -3, 1).nor();
@@ -102,7 +108,21 @@ public class LoadingScene implements Screen {
     }
 
     @Override
-    public void show(){}
+    public void show(){
+        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.position.set(10f, 10f, 10f); // Camera positioned at (10, 10, 10)
+        camera.lookAt(0, 0, 0);
+        camera.near = 1f; // Near clipping plane
+        camera.far = 300f; // Far clipping plane
+        camera.update();
+        sceneManager.setCamera(camera);
+//        cameraInputController = new CameraInputController(camera);
+        firstPersonCameraController = new FirstPersonCameraController(camera);
+        mycontrol=new thirdpersoncontrol(camera);
+
+        Gdx.input.setInputProcessor(mycontrol);
+        camera.position.set(5,5,5);
+    }
     public void create() {
         ModelBuilder mb = new ModelBuilder();
         mb.begin();
@@ -117,68 +137,60 @@ public class LoadingScene implements Screen {
         ground = new ModelInstance(model, "ground");
         ball = new ModelInstance(model, "ball");
         ball.transform.setToTranslation(0, 3f, 0);
+        Ground.modelInstance.transform.setToTranslation(0,-0.8f,0);
+        ground.transform.setToTranslation(0, -0.8f, 0);
+        camera.position.crs(x,y,z);
 //
         instances = new Array<ModelInstance>();
-//        instances.add(ground);
+        instances.add(ground);
         instances.add(ball);
 
+
+
+
     }
-float x,y,z=0;
+
 
     float SPEED=2;
-    Vector3 PlayerPosition=new Vector3();
-    Vector3 PlayerScale=new Vector3();
-    Vector3 PlayerVelocity= new Vector3();
 
 
-
-    private float gravity = -9.8f; // Adjust as needed
-    private float jumpForce = 10f;
+    float x,z,velocity=0;
+    float y=0.2f;
+    void jump(float del){
+        y+=velocity;
+    }
+//    private float gravity = -9.8f; // Adjust as needed
+//    private float jumpForce = 10f;
     @Override
     public void render(float delta) {
-
         time += delta;
-
-        cameraController.update();
-
-        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-            PlayerVelocity.y += jumpForce;
-        }
-
-        PlayerVelocity.y += gravity * delta;
-
-        if (PlayerPosition.y + PlayerVelocity.y * delta <= 1) {
-            PlayerPosition.y = 1;
-            PlayerVelocity.y = 0;
-        }
-
-
-        PlayerPosition.add(PlayerVelocity.scl(delta));
-
-        // Update player model instance position
-//        scene.modelInstance.transform.setToTranslation(PlayerPosition.x, PlayerPosition.y, PlayerPosition.z);
-
-
+        if (y<=0){y=0;} y+=velocity*delta;
+        if (velocity<=-10){velocity=0;}else {velocity-=delta+0.3f;}
+//        System.out.println("velocity : "+ velocity);
+//        System.out.println("Y : "+y);
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){velocity=5;}
         if (Gdx.input.isKeyPressed(Input.Keys.UP)){z+=delta*SPEED;}
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)){z-=delta*SPEED;}
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)){x-=delta*SPEED;}
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)){x+=delta*SPEED;}
-//        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){y=2;}
-
-
-//        scene.modelInstance.transform.rotate(Vector3.Y, 10f * delta);
-        scene.modelInstance.transform.setToTranslation(x,y,z);
-
-
-
-        scene.modelInstance.transform.getTranslation(PlayerPosition);
-        System.out.println(scene.modelInstance.transform.getScale(PlayerScale));
-//        System.out.println(PlayerPosition);
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)){x+=delta*SPEED;}
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)){x-=delta*SPEED;}
 
         // render
+        Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+//        cameraInputController.update();
+        firstPersonCameraController.update();
+
         sceneManager.update(delta);
         sceneManager.render();
+        if (y<=0){scene.modelInstance.transform.setToTranslation(x,0,z);}
+        else {scene.modelInstance.transform.setToTranslation(x,y,z);}
+
+//        ground.transform.setToTranslation(x,y,z);
+
+
+//        assetManager.update();
+
+
         modelBatch.begin(camera);
         modelBatch.render(instances);
         modelBatch.end();
@@ -189,6 +201,9 @@ float x,y,z=0;
     @Override
     public void resize(int width, int height) {
 
+        camera.viewportWidth = width;
+        camera.viewportHeight = height;
+        camera.update();
         sceneManager.updateViewport(width, height);
     }
 
