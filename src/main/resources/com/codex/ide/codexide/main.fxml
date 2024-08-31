@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #282C35;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.codex.ide.codexide.mainController">
+
+  <children>
+
+    <!-- MenuBar Section -->
+    <MenuBar style="-fx-color: red;-fx-background-color:black;" VBox.vgrow="NEVER">
+      <menus>
+        <Menu fx:id="file" style="-fx-text-fill: red;" text="File">
+          <items>
+            <MenuItem style="-fx-text-fill: red;" text="New" />
+            <MenuItem text="Open…" />
+            <Menu text="Open Recent" />
+            <SeparatorMenuItem />
+            <MenuItem text="Close" />
+            <MenuItem text="Save" />
+            <MenuItem text="Save As…" />
+            <MenuItem text="Revert" />
+            <SeparatorMenuItem />
+            <MenuItem text="Preferences…" />
+            <SeparatorMenuItem />
+            <MenuItem text="Quit" />
+          </items>
+        </Menu>
+        <Menu style="-fx-text-fill: #E0E0E0;" text="Edit">
+          <items>
+            <MenuItem text="Undo" />
+            <MenuItem text="Redo" />
+            <SeparatorMenuItem />
+            <MenuItem text="Cut" />
+            <MenuItem text="Copy" />
+            <MenuItem text="Paste" />
+            <MenuItem text="Delete" />
+            <SeparatorMenuItem />
+            <MenuItem text="Select All" />
+            <MenuItem text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu style="-fx-text-fill: #E0E0E0;" text="Help">
+          <items>
+            <MenuItem text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+
+    <!-- Main Content Area with SplitPane -->
+    <SplitPane dividerPositions="0.25, 0.75" prefHeight="Infinity" prefWidth="Infinity" style="-fx-background-color: #282C35;" VBox.vgrow="ALWAYS">
+      <items>
+
+        <!-- Directory List Section -->
+        <AnchorPane maxHeight="1.7976931348623157E308" prefHeight="499.0" prefWidth="222.0" style="-fx-background-color: #282C35;">
+          <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" text="Directories" textFill="#a48989" />
+            <ListView fx:id="listenfiles" layoutX="11.0" layoutY="83.0" prefHeight="359.0" prefWidth="200.0" style="-fx-background-color: #343A46;" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="83.0" />
+          </children>
+        </AnchorPane>
+
+        <!-- Code Editor Section -->
+        <ScrollPane opacity="0.13" style="-fx-background-color: #282C35;">
+          <content>
+            <AnchorPane minHeight="0" minWidth="0" prefHeight="437.0" prefWidth="41.0" style="-fx-background-color: #282C35;">
+              <children>
+                <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" />
+                <TextArea fx:id="codetextview" blendMode="DARKEN" layoutX="44.0" layoutY="46.0" prefHeight="398.0" prefWidth="395.0" style="-fx-background-color: white; -fx-color: white;" text="Hello World" wrapText="true" />
+                <TextField layoutX="43.0" layoutY="14.0" prefHeight="26.0" prefWidth="407.0" style="-fx-background-color: #343A46;" />
+                <VBox layoutX="5.0" layoutY="46.0" prefHeight="489.0" prefWidth="34.0" spacing="5" style="-fx-padding: 10;">
+                  <children>
+                    <Label text="1" textFill="#bfc2c9" />
+                    <Label text="2" textFill="#bfc2c9" />
+                    <Label text="3" textFill="#bfc2c9" />
+                    <Label text="4" textFill="#bfc2c9" />
+                    <Label text="5" textFill="#bfc2c9" />
+                    <Label text="6" textFill="#bfc2c9" />
+                    <Label text="7" textFill="#bfc2c9" />
+                    <Label text="8" textFill="#bfc2c9" />
+                    <Label text="9" textFill="#bfc2c9" />
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+
+        <!-- Details Section -->
+        <AnchorPane style="-fx-background-color: #282C35;">
+          <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" text="Details" textFill="#a48989" />
+          </children>
+        </AnchorPane>
+
+      </items>
+    </SplitPane>
+
+  </children>
+</VBox>
