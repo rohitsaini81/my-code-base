@@ -27,6 +27,8 @@ dependencies {
   implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
   implementation "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-desktop"
   implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+//  api "com.github.jamestkhan.mundus:gdx-runtime:$mundusVersion"
+
   implementation project(':core')
 }
 

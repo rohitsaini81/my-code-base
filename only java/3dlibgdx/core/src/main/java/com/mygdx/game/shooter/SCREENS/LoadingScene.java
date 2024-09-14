@@ -4,18 +4,15 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.physics.bullet.Bullet;
 import com.badlogic.gdx.utils.Array;
-import com.mygdx.game.shooter.Controls.thirdpersoncontrol;
-import net.mgsx.gltf.data.data.GLTFBuffer;
-import net.mgsx.gltf.loaders.glb.GLBAssetLoader;
-import net.mgsx.gltf.loaders.gltf.GLTFAssetLoader;
+//import com.mygdx.game.shooter.Controls.CameraController;
 import net.mgsx.gltf.loaders.gltf.GLTFLoader;
 import net.mgsx.gltf.scene3d.attributes.PBRCubemapAttribute;
 import net.mgsx.gltf.scene3d.attributes.PBRTextureAttribute;
@@ -32,6 +29,7 @@ public class LoadingScene implements Screen {
     private SceneAsset sceneAsset;
     private Scene scene;
     private Scene Ground;
+    private Scene temp1;
     public PerspectiveCamera camera;
     private Cubemap diffuseCubemap;
     private Cubemap environmentCubemap;
@@ -42,7 +40,7 @@ public class LoadingScene implements Screen {
     private DirectionalLightEx light;
     private FirstPersonCameraController firstPersonCameraController;
     private CameraInputController cameraInputController;
-    private thirdpersoncontrol mycontrol;
+//    private CameraController cameraController;
 
 
 
@@ -54,7 +52,7 @@ public class LoadingScene implements Screen {
     ModelInstance ball;
 
 
-
+Scene animationscene;
 
     public LoadingScene(){
         SceneAsset sceneAsset;
@@ -64,6 +62,12 @@ public class LoadingScene implements Screen {
 //        scene.modelInstance.transform.setToTranslation(0,1,0);
         sceneAsset = new GLTFLoader().load(Gdx.files.internal("models/2/untitled.gltf"));
         Ground = new Scene(sceneAsset.scene);
+        sceneAsset = new GLTFLoader().load(Gdx.files.internal("models/3/scene.gltf"));
+//        sceneAsset = new GLTFLoader().load(Gdx.files.internal("player/terrains/2/my_terrain.gltf"));
+        temp1 = new Scene(sceneAsset.scene);
+        sceneAsset = new GLTFLoader().load(Gdx.files.internal("models/6test/BASEmodel.gltf"));
+        animationscene = new Scene(sceneAsset.scene);
+//        animationscene.animationController.setAnimation("fly");
         sceneManager = new SceneManager();
 //        sceneManager.addScene(scene);
 //        assetManager = new AssetManager();
@@ -72,6 +76,7 @@ public class LoadingScene implements Screen {
 //        assetManager.load("models/1/Alien Slime.gltf", SceneAsset.class);
         sceneManager.addScene(scene);
         sceneManager.addScene(Ground);
+        sceneManager.addScene(temp1);
 
         camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.update();
@@ -106,9 +111,16 @@ public class LoadingScene implements Screen {
 
 
     }
-
+    SpriteBatch batch;
+    BitmapFont fontx;
+    BitmapFont fonty;
+    BitmapFont fontz;
     @Override
     public void show(){
+        batch = new SpriteBatch();
+        fontx = new BitmapFont();
+        fonty = new BitmapFont();
+        fontz = new BitmapFont();
         camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(10f, 10f, 10f); // Camera positioned at (10, 10, 10)
         camera.lookAt(0, 0, 0);
@@ -116,11 +128,11 @@ public class LoadingScene implements Screen {
         camera.far = 300f; // Far clipping plane
         camera.update();
         sceneManager.setCamera(camera);
-//        cameraInputController = new CameraInputController(camera);
+        cameraInputController = new CameraInputController(camera);
         firstPersonCameraController = new FirstPersonCameraController(camera);
-        mycontrol=new thirdpersoncontrol(camera);
+//        mycontrol=new thirdpersoncontrol(camera);
 
-        Gdx.input.setInputProcessor(mycontrol);
+        Gdx.input.setInputProcessor(cameraInputController);
         camera.position.set(5,5,5);
     }
     public void create() {
@@ -139,7 +151,7 @@ public class LoadingScene implements Screen {
         ball.transform.setToTranslation(0, 3f, 0);
         Ground.modelInstance.transform.setToTranslation(0,-0.8f,0);
         ground.transform.setToTranslation(0, -0.8f, 0);
-        camera.position.crs(x,y,z);
+//        camera.position.crs(x,y,z);
 //
         instances = new Array<ModelInstance>();
         instances.add(ground);
@@ -156,18 +168,23 @@ public class LoadingScene implements Screen {
 
     float x,z,velocity=0;
     float y=0.2f;
+
     void jump(float del){
         y+=velocity;
     }
-//    private float gravity = -9.8f; // Adjust as needed
-//    private float jumpForce = 10f;
+
+
+    float camx,camy,camz=0;
+    float lookx,lookz,looky=0;
     @Override
     public void render(float delta) {
+
+
         time += delta;
         if (y<=0){y=0;} y+=velocity*delta;
         if (velocity<=-10){velocity=0;}else {velocity-=delta+0.3f;}
-//        System.out.println("velocity : "+ velocity);
-//        System.out.println("Y : "+y);
+
+
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){velocity=5;}
         if (Gdx.input.isKeyPressed(Input.Keys.UP)){z+=delta*SPEED;}
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)){z-=delta*SPEED;}
@@ -177,8 +194,8 @@ public class LoadingScene implements Screen {
         // render
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-//        cameraInputController.update();
-        firstPersonCameraController.update();
+        cameraInputController.update();
+//        firstPersonCameraController.update();
 
         sceneManager.update(delta);
         sceneManager.render();
@@ -195,7 +212,16 @@ public class LoadingScene implements Screen {
         modelBatch.render(instances);
         modelBatch.end();
 
-
+        if (batch!=null){
+            batch.begin();
+            fontx.draw(batch,"lookx:"+lookx,0,700);
+            fonty.draw(batch,"looky:"+looky,0,690);
+            fontz.draw(batch,"lookz:"+lookz,0,680);
+            fontx.setColor(Color.RED);
+            fonty.setColor(Color.RED);
+            fontz.setColor(Color.RED);
+            batch.end();
+        }
     }
 
     @Override
@@ -224,6 +250,7 @@ public class LoadingScene implements Screen {
 
     @Override
     public void dispose() {
+        batch.dispose();
         sceneManager.dispose();
         sceneAsset.dispose();
         environmentCubemap.dispose();

@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.loader.ObjLoader;
+import com.badlogic.gdx.graphics.g3d.utils.AnimationController;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.math.MathUtils;
@@ -31,7 +32,7 @@ public class loadingmodel implements Screen {
     ModelLoader loader;
 
     public AssetManager assets;
-    public Array<ModelInstance> instances = new Array<ModelInstance>();
+    public Array<ModelInstance> instances =new Array<ModelInstance>();;
     public Environment environment;
     public boolean loading;
 
@@ -40,9 +41,10 @@ public class loadingmodel implements Screen {
 //    public ModelInstance instance;
     public ModelBuilder modelBuilder;
     public CameraInputController camController;
-
-
+    ModelInstance instance;
+    AnimationController controller;
     public loadingmodel(){
+
 
         modelBatch = new ModelBatch();
         cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -55,6 +57,7 @@ public class loadingmodel implements Screen {
 
         assets = new AssetManager();
         assets.load("models1/1/ship.obj", Model.class);
+//        assets.load("obj/1/BASEmodel.obj", Model.class);
         assets.finishLoading();
         loading = true;
     }
@@ -96,6 +99,7 @@ public class loadingmodel implements Screen {
     private void doneLoading() {
 
         Model ship = assets.get("models1/1/ship.obj", Model.class);
+//      Model ship = assets.get("obj/1/BASEmodel.obj", Model.class);
         ModelInstance shipInstance = new ModelInstance(ship);
         ModelInstance shipInstance2 = new ModelInstance(ship);
         shipInstance2.transform.scl(0.5f);
@@ -104,6 +108,10 @@ public class loadingmodel implements Screen {
         instances.add(shipInstance2);
         createWhiteSurface();
         loading = false;
+
+
+
+
     }
 
 

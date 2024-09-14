@@ -5,10 +5,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.mygdx.game.shooter.Controls.movement;
 import com.mygdx.game.shooter.PLAYER.player;
-import com.mygdx.game.shooter.SCREENS.LoadingScene;
-import com.mygdx.game.shooter.SCREENS.game;
-import com.mygdx.game.shooter.SCREENS.threeDscreen;
-import com.mygdx.game.shooter.SCREENS.loadingmodel;
+import com.mygdx.game.shooter.SCREENS.*;
+import com.mygdx.game.shooter.SCREENS.Bullet.bullet1;
 
 public class Main extends Game {
     public static int WIDTH= 480;
@@ -23,11 +21,11 @@ public class Main extends Game {
     public static loadingmodel loadingmodel;
     public static LoadingScene loadingScene;
     public static BulletTest bulletTest;
-
-
-
-
-
+    public static animation animation;
+    public static something something;
+    public static CollisionTerrain collisionTerrain;
+//    public static MundusLoading mundusLoading;
+    public static bullet1 bullet_1;
 
 
 
@@ -45,17 +43,20 @@ public class Main extends Game {
         loadingmodel= new loadingmodel();
         loadingScene = new LoadingScene();
         bulletTest = new BulletTest();
-        this.setScreen (loadingScene);
+        animation = new animation();
+        something = new something();
+        collisionTerrain = new CollisionTerrain();
+//        mundusLoading = new MundusLoading(); // not workin project needs to export again
+        bullet_1 = new bullet1();
+        this.setScreen (bullet_1);
 
 
-//        cameracontroller =  new cameracontroller();
 
 
     }
 
     @Override
     public void render(){
-//        movement.render(Gdx.graphics.getDeltaTime());
         super.render();
     }
 

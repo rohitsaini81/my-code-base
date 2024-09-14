@@ -8,4 +8,6 @@ dependencies {
   api "com.github.tommyettinger:regexodus:$regExodusVersion"
   api "com.github.tommyettinger:textratypist:$textratypistVersion"
   api "org.codehaus.groovy:groovy-all:$groovyVersion"
+  api "com.github.jamestkhan.mundus:gdx-runtime:$mundusVersion"
+
 }
