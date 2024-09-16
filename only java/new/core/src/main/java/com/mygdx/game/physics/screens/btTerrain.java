@@ -22,6 +22,7 @@ import net.mgsx.gltf.scene3d.scene.SceneManager;
 
 import java.awt.*;
 
+import static com.badlogic.gdx.physics.bullet.collision.ebtDispatcherQueryType.BT_CONTACT_POINT_ALGORITHMS;
 import static com.mygdx.game.physics.etc.HeightMapTerrain.terrainShape;
 
 
@@ -142,6 +143,7 @@ public class btTerrain implements Screen {
         dispatcher = new btCollisionDispatcher(collisionConfig);
 
 
+
         ballShape = new btSphereShape(0.5f);
         groundShape = new btBoxShape(new Vector3(2.5f, 0.5f, 2.5f));
         btterrain = gltfTerrainToHeightfield.getTerrainShape();
@@ -167,17 +169,23 @@ public class btTerrain implements Screen {
         btCollisionAlgorithmConstructionInfo ci = new btCollisionAlgorithmConstructionInfo();
         ci.setDispatcher1(dispatcher);
 //        btCollisionAlgorithm algorithm = new btSphereBoxCollisionAlgorithm(null,ci,co0.wrapper,co1.wrapper,false);
-        btCollisionAlgorithm algorithm = new btConvexHeightfieldCollisionAlgorithm(null,ci,co0.wrapper,co1.wrapper,false);
+
+
+        btCollisionAlgorithm algorithm;
+        algorithm = dispatcher.findAlgorithm(co0.wrapper, co2.wrapper,null, 0);
+
+
+
 
         btDispatcherInfo info = new btDispatcherInfo();
-        btManifoldResult result = new btManifoldResult(co0.wrapper,co1.wrapper);
-        algorithm.processCollision(co0.wrapper,co1.wrapper,info,result);
+        btManifoldResult result = new btManifoldResult(co0.wrapper,co2.wrapper);
+        algorithm.processCollision(co0.wrapper,co2.wrapper,info,result);
         boolean r = result.getPersistentManifold().getNumContacts()>0;
         result.dispose();
         info.dispose();
         algorithm.dispose();
         ci.dispose();
-        co1.dispose();
+        co2.dispose();
         co0.dispose();
         return r;
     }
