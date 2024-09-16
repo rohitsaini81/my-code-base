@@ -16,8 +16,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.Bullet;
 import com.badlogic.gdx.physics.bullet.collision.*;
 import com.badlogic.gdx.utils.Array;
-import com.mygdx.game.physics.etc.HeightMapTerrain;
-import com.mygdx.game.physics.etc.Terrain;
+import com.mygdx.game.physics.etc.*;
 import net.mgsx.gltf.scene3d.scene.Scene;
 import net.mgsx.gltf.scene3d.scene.SceneManager;
 
@@ -25,7 +24,34 @@ import java.awt.*;
 
 import static com.mygdx.game.physics.etc.HeightMapTerrain.terrainShape;
 
-public class basicbullet implements Screen {
+
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.*;
+    import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g3d.*;
+    import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
+import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
+import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
+import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
+import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.bullet.Bullet;
+import com.badlogic.gdx.physics.bullet.collision.*;
+    import com.badlogic.gdx.utils.Array;
+import com.mygdx.game.physics.etc.HeightMapTerrain;
+import com.mygdx.game.physics.etc.Terrain;
+import net.mgsx.gltf.scene3d.scene.Scene;
+import net.mgsx.gltf.scene3d.scene.SceneManager;
+
+import java.awt.*;
+
+    import static com.mygdx.game.physics.etc.HeightMapTerrain.terrainShape;
+
+public class btTerrain implements Screen {
     SpriteBatch batch;
     Font logs;
 
@@ -43,7 +69,7 @@ public class basicbullet implements Screen {
     Model model;
     ModelInstance ground;
     ModelInstance ball;
-    public basicbullet(){
+    public btTerrain(){
         init();
         create();
         init__Bullet();
@@ -72,7 +98,7 @@ public class basicbullet implements Screen {
         ModelBuilder mb = new ModelBuilder();
         mb.begin();
         mb.node().id = "ground";
-        mb.part("box", GL20.GL_TRIANGLES, VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal, new Material(ColorAttribute.createDiffuse(Color.RED)))
+        mb.part("box", GL20.GL_TRIANGLES, VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal, new Material(ColorAttribute.createDiffuse(com.badlogic.gdx.graphics.Color.RED)))
             .box(5f, 0.5f, 5f);
         mb.node().id = "ball";
         mb.part("sphere", GL20.GL_TRIANGLES, VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal, new Material(ColorAttribute.createDiffuse(Color.GREEN)))
@@ -90,12 +116,10 @@ public class basicbullet implements Screen {
     Terrain terrain;
     Scene terrainScene;
     SceneManager sceneManager = new SceneManager();
+    GltfTerrainToHeightfield gltfTerrainToHeightfield;
     @Override
     public void show() {
         terrain = new HeightMapTerrain(new Pixmap(Gdx.files.internal("textures/heightmap.png")), 3f);
-//        terrain = new HeightMapTerrain(new Pixmap(Gdx.files.internal("heightmapterrain.png")), 3f);
-
-//        terrainScene = new Scene(terrain.getModelInstance());
         instances.add(terrain.getModelInstance());
         instances.add(ball);
 //        sceneManager.setCamera(Camera);
@@ -113,13 +137,14 @@ public class basicbullet implements Screen {
     btDispatcher dispatcher;
     private void init__Bullet(){
         Bullet.init();
+        gltfTerrainToHeightfield = new GltfTerrainToHeightfield("",100);
         collisionConfig = new btDefaultCollisionConfiguration();
         dispatcher = new btCollisionDispatcher(collisionConfig);
 
 
         ballShape = new btSphereShape(0.5f);
         groundShape = new btBoxShape(new Vector3(2.5f, 0.5f, 2.5f));
-        btterrain = terrainShape;
+        btterrain = gltfTerrainToHeightfield.getTerrainShape();
 
 
         groundObject = new btCollisionObject();
@@ -141,7 +166,9 @@ public class basicbullet implements Screen {
         CollisionObjectWrapper co2 = new CollisionObjectWrapper(btTerrainObject);
         btCollisionAlgorithmConstructionInfo ci = new btCollisionAlgorithmConstructionInfo();
         ci.setDispatcher1(dispatcher);
-        btCollisionAlgorithm algorithm = new btSphereBoxCollisionAlgorithm(null,ci,co0.wrapper,co1.wrapper,false);
+//        btCollisionAlgorithm algorithm = new btSphereBoxCollisionAlgorithm(null,ci,co0.wrapper,co1.wrapper,false);
+        btCollisionAlgorithm algorithm = new btConvexHeightfieldCollisionAlgorithm(null,ci,co0.wrapper,co1.wrapper,false);
+
         btDispatcherInfo info = new btDispatcherInfo();
         btManifoldResult result = new btManifoldResult(co0.wrapper,co1.wrapper);
         algorithm.processCollision(co0.wrapper,co1.wrapper,info,result);
@@ -237,3 +264,4 @@ public class basicbullet implements Screen {
         modelBatch.dispose();
     }
 }
+
