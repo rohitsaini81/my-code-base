@@ -1,2 +1,0 @@
-myname="rohit"
-echo $myname
