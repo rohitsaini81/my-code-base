@@ -28,14 +28,13 @@ public class HeightMapTerrain extends Terrain {
     private static final Vector3 c01 = new Vector3();
     private static final Vector3 c10 = new Vector3();
     private static final Vector3 c11 = new Vector3();
-    int height;
 
 
     public HeightMapTerrain(Pixmap data, float magnitude) {
 
         this.width = data.getWidth();
-        height = data.getHeight();
-        this.size = width;
+        this.height = data.getHeight();
+
 
         this.heightMagnitude = magnitude;
         heightData = new float[width * height];
@@ -44,9 +43,9 @@ public class HeightMapTerrain extends Terrain {
         field = new HeightField(true, data, true, VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal | VertexAttributes.Usage.TextureCoordinates);
         data.dispose();
         field.corner00.set(0, 0, 0);
-        field.corner10.set(size, 0, 0);
-        field.corner01.set(0, 0, size);
-        field.corner11.set(size, 0, size);
+        field.corner10.set(height, 0, 0);
+        field.corner01.set(0, 0, height);
+        field.corner11.set(height, 0, height);
         field.magnitude.set(0f, magnitude, 0f);
         field.update();
 
@@ -90,7 +89,7 @@ public class HeightMapTerrain extends Terrain {
         float terrainZ = worldZ - c00.z;
 
         // The size between the vertices
-        float gridSquareSize = size / ((float) width - 1);
+        float gridSquareSize = height / ((float) width - 1);
 
         // Determine which grid square the coordinates are in
         int gridX = (int) Math.floor(terrainX / gridSquareSize);
@@ -106,22 +105,22 @@ public class HeightMapTerrain extends Terrain {
         float zCoord = (terrainZ % gridSquareSize) / gridSquareSize;
 
         // Determine the triangle we are on and apply barrycentric.
-        float height;
+        float Height;
         if (xCoord <= (1 - zCoord)) { // Upper left triangle
-            height = barryCentric(
+            Height = barryCentric(
                 c00.set(0, field.data[gridZ * width + gridX], 0),
                 c10.set(1, field.data[gridZ * width + (gridX + 1)], 0),
                 c01.set(0, field.data[(gridZ + 1) * width + gridX], 1),
                 new Vector2(xCoord, zCoord));
         } else {
-            height =  barryCentric(
+            Height =  barryCentric(
                 c10.set(1, field.data[gridZ * width + (gridX + 1)], 0),
                 c11.set(1, field.data[(gridZ + 1) * width + (gridX + 1)], 1),
                 c01.set(0, field.data[(gridZ + 1) * width + gridX], 1),
                 new Vector2(xCoord, zCoord));
         }
 
-        return height * heightMagnitude;
+        return Height * heightMagnitude;
     }
 
     public static float barryCentric(Vector3 p1, Vector3 p2, Vector3 p3, Vector2 pos) {

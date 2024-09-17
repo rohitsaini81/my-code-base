@@ -6,7 +6,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
@@ -14,7 +13,7 @@ import com.badlogic.gdx.math.Rectangle;
 import static com.badlogic.gdx.math.MathUtils.random;
 
 
-public class game implements Screen {
+public class snake implements Screen {
     SpriteBatch batch;
     Texture snake;
     Rectangle snakeRect;
@@ -24,7 +23,7 @@ public class game implements Screen {
     float WorldHeight=Gdx.graphics.getHeight()-5,WorldWidth=Gdx.graphics.getWidth()-5;
 
     ShapeRenderer shapeRenderer;
-    public game(){
+    public snake(){
        batch = new SpriteBatch();
        shapeRenderer = new ShapeRenderer();
         shapeRenderer.setAutoShapeType(true);

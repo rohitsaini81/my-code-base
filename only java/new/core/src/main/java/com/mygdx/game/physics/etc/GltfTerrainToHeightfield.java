@@ -23,13 +23,12 @@ public class GltfTerrainToHeightfield {
     SceneAsset sceneAsset;
     Scene terrainScene;
     // Load the GLTF model and generate heightfield shape
-    public GltfTerrainToHeightfield(String gltfFilePath, float heightScale) {
+    public GltfTerrainToHeightfield(Scene scene,float heightScale) {
         // Load the terrain GLTF model
 
-        String path = "terrain/1/my_terrain.gltf";
-        sceneAsset = new GLTFLoader().load(Gdx.files.internal(path));
-        terrainScene = new Scene(sceneAsset.scene);
-        terrainInstance = new ModelInstance(terrainScene.modelInstance);
+//        sceneAsset = new GLTFLoader().load(Gdx.files.internal(gltfFilePath));
+        terrainScene = scene;
+        terrainInstance =terrainScene.modelInstance;
         // Extract the mesh from the model
         extractHeightDataFromTerrain(terrainInstance);
 
@@ -47,6 +46,7 @@ public class GltfTerrainToHeightfield {
         int vertexSize = terrainMesh.getVertexSize() / 4; // Divide by 4 because the vertex size is in bytes
         int positionOffset = terrainMesh.getVertexAttribute(VertexAttributes.Usage.Position).offset / 4;
 
+
         // Create a buffer to hold the vertices
         float[] vertices = new float[numVertices * vertexSize];
         terrainMesh.getVertices(vertices);
@@ -59,6 +59,7 @@ public class GltfTerrainToHeightfield {
 
         for (int i = 0; i < numVertices; i++) {
             int index = i * vertexSize + positionOffset;
+            System.out.println("index : "+index);
             float x = vertices[index];
             float y = vertices[index + 1]; // Y is height
             float z = vertices[index + 2];

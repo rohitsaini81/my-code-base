@@ -17,8 +17,8 @@ import com.badlogic.gdx.physics.bullet.Bullet;
 import com.badlogic.gdx.physics.bullet.collision.*;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.physics.etc.*;
-import net.mgsx.gltf.scene3d.scene.Scene;
-import net.mgsx.gltf.scene3d.scene.SceneManager;
+import net.mgsx.gltf.loaders.gltf.GLTFLoader;
+import net.mgsx.gltf.scene3d.scene.*;
 
 import java.awt.*;
 
@@ -116,12 +116,13 @@ public class btTerrain implements Screen {
     }
     Terrain terrain;
     Scene terrainScene;
+    SceneAsset sceneAsset;
     SceneManager sceneManager = new SceneManager();
     GltfTerrainToHeightfield gltfTerrainToHeightfield;
     @Override
     public void show() {
-        terrain = new HeightMapTerrain(new Pixmap(Gdx.files.internal("textures/heightmap.png")), 3f);
-        instances.add(terrain.getModelInstance());
+//        terrain = new HeightMapTerrain(new Pixmap(Gdx.files.internal("textures/heightmap.png")), 3f);
+//        instances.add(terrain.getModelInstance());
         instances.add(ball);
 //        sceneManager.setCamera(Camera);
 //        sceneManager.addScene(terrainScene);
@@ -137,8 +138,13 @@ public class btTerrain implements Screen {
     btCollisionConfiguration collisionConfig;
     btDispatcher dispatcher;
     private void init__Bullet(){
+        String path = "terrain/1/my_terrain.gltf";
+        sceneAsset = new GLTFLoader().load(Gdx.files.internal(path));
+        terrainScene = new Scene(sceneAsset.scene);
+        instances.add(terrainScene.modelInstance);
         Bullet.init();
-        gltfTerrainToHeightfield = new GltfTerrainToHeightfield("",100);
+        gltfTerrainToHeightfield = new GltfTerrainToHeightfield(terrainScene,1);
+        System.out.println(terrainScene.modelInstance.transform.getScaleY());
         collisionConfig = new btDefaultCollisionConfiguration();
         dispatcher = new btCollisionDispatcher(collisionConfig);
 
@@ -160,7 +166,7 @@ public class btTerrain implements Screen {
 
         btTerrainObject = new btCollisionObject();
         btTerrainObject.setCollisionShape(btterrain);
-        btTerrainObject.setWorldTransform(instances.get(instances.size-1).transform);
+        btTerrainObject.setWorldTransform(terrainScene.modelInstance.transform);
     }
     boolean checkCollision(){
         CollisionObjectWrapper co0 = new CollisionObjectWrapper(ballObject);
