@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://nscwbu4or8my"]
+
+[ext_resource type="PackedScene" uid="uid://cf1ycx54qbcl5" path="res://assets/models/my_terrain.gltf" id="1_6uloy"]
+[ext_resource type="PackedScene" uid="uid://1dqbk0a5vs78" path="res://assets/player/player.gltf" id="2_3xypu"]
+
+[node name="my_terrain" instance=ExtResource("1_6uloy")]
+
+[node name="player" parent="." index="62" instance=ExtResource("2_3xypu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30207, 0.746835, 1.5666)

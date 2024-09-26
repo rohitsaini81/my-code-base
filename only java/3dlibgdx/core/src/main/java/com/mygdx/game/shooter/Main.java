@@ -48,7 +48,8 @@ public class Main extends Game {
         collisionTerrain = new CollisionTerrain();
 //        mundusLoading = new MundusLoading(); // not workin project needs to export again
         bullet_1 = new bullet1();
-        this.setScreen (bullet_1);
+        threeDscreen threeDscreen=new threeDscreen();
+        this.setScreen (new bullet1());
 
 
 
