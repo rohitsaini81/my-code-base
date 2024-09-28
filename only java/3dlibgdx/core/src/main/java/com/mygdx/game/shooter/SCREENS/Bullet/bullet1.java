@@ -152,34 +152,34 @@ public class bullet1 implements Screen {
 
 
     void playerinit(btDynamicsWorld dynamicsWorld) {
-            // Step 1: Create the cone mesh (visual representation of the player)
-            ModelBuilder modelBuilder = new ModelBuilder();
-            Model coneModel = modelBuilder.createCone(
-                1f, 2f, 1f, 20,   // Width, Height, Depth, Divisions
-                new Material(ColorAttribute.createDiffuse(Color.RED)),
-                VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal
-            );
-            playerInstance = new ModelInstance(coneModel);
+        // Step 1: Create the cone mesh (visual representation of the player)
+        ModelBuilder modelBuilder = new ModelBuilder();
+        Model coneModel = modelBuilder.createCone(
+            1f, 2f, 1f, 20,   // Width, Height, Depth, Divisions
+            new Material(ColorAttribute.createDiffuse(Color.RED)),
+            VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal
+        );
+        playerInstance = new ModelInstance(coneModel);
 
-            // Step 2: Create the collision shape (for physics)
-            btCollisionShape playerShape = new btCapsuleShape(0.5f, 1.8f);  // Capsule shape for the player
-            Vector3 playerInertia = new Vector3(0, 0, 0);
-            playerShape.calculateLocalInertia(1.0f, playerInertia);  // Mass of 1.0f for the player
+        // Step 2: Create the collision shape (for physics)
+        btCollisionShape playerShape = new btCapsuleShape(0.5f, 1.8f);  // Capsule shape for the player
+        Vector3 playerInertia = new Vector3(0, 0, 0);
+        playerShape.calculateLocalInertia(1.0f, playerInertia);  // Mass of 1.0f for the player
 
-            // Step 3: Create the rigid body and set its initial position
-            btRigidBody.btRigidBodyConstructionInfo playerBodyCI = new btRigidBody.btRigidBodyConstructionInfo(1.0f, null, playerShape, playerInertia);
-            playerBody = new btRigidBody(playerBodyCI);
-            playerBody.proceedToTransform(new Matrix4().setToTranslation(0, 10, 0));  // Start 10 units above the ground
+        // Step 3: Create the rigid body and set its initial position
+        btRigidBody.btRigidBodyConstructionInfo playerBodyCI = new btRigidBody.btRigidBodyConstructionInfo(1.0f, null, playerShape, playerInertia);
+        playerBody = new btRigidBody(playerBodyCI);
+        playerBody.proceedToTransform(new Matrix4().setToTranslation(0, 10, 0));  // Start 10 units above the ground
 
-            // Step 4: Add the rigid body to the dynamics world (physics)
-            dynamicsWorld.addRigidBody(playerBody);
-        }
-
-
+        // Step 4: Add the rigid body to the dynamics world (physics)
+        dynamicsWorld.addRigidBody(playerBody);
+    }
 
 
 
-        public btDynamicsWorld getDynamicsWorld() {
+
+
+    public btDynamicsWorld getDynamicsWorld() {
         return dynamicsWorld;
     }
 
