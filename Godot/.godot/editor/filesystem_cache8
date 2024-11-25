@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1726920176
+::res://::1729660608
 icon.svg::CompressedTexture2D::3693471470270810443::1726918301::1726918320::1::::<><>::
 ::res://addons/::1726919410
 ::res://addons/devblocks/::1726919410
@@ -98,10 +98,11 @@ texture_11.png::CompressedTexture2D::370141141236260239::1726919411::1726919412:
 texture_12.png::CompressedTexture2D::1471272324336889065::1726919411::1726919412::1::::<><>::
 texture_13.png::CompressedTexture2D::9015112077477618279::1726919411::1726919412::1::::<><>::
 ::res://assets/::1726919828
-::res://assets/godot/::1726919848
-my_terrain.tscn::PackedScene::949774573075418812::1726919848::0::1::::<><>::uid://cf1ycx54qbcl5::::res://assets/models/my_terrain.gltf<>uid://1dqbk0a5vs78::::res://assets/player/player.gltf
+::res://assets/godot/::1726921319
+my_terrain.tscn::PackedScene::949774573075418812::1726921319::0::1::::<><>::uid://cf1ycx54qbcl5::::res://assets/models/my_terrain.gltf<>uid://1dqbk0a5vs78::::res://assets/player/player.gltf
 ::res://assets/models/::1726918464
 my_terrain.gltf::PackedScene::5178921442316359620::1726051611::1726918464::1::::<><>::
-::res://assets/player/::1726918947
+::res://assets/player/::1726921237
 animation_list.txt::TextFile::-1::1725969265::0::1::::<><>::
+new_script.gd::GDScript::-1::1726921237::0::1::::<>RefCounted<>::
 player.gltf::PackedScene::1832076889423738865::1725969067::1726918947::1::::<><>::
