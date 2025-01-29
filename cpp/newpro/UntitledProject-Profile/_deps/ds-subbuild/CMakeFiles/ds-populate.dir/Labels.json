@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/CMakeFiles/ds-populate"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/CMakeFiles/ds-populate.rule"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/CMakeFiles/ds-populate-complete.rule"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-build.rule"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-configure.rule"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-download.rule"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-install.rule"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-patch.rule"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-test.rule"
+		},
+		{
+			"file" : "/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"ds-populate"
+		],
+		"name" : "ds-populate"
+	}
+}

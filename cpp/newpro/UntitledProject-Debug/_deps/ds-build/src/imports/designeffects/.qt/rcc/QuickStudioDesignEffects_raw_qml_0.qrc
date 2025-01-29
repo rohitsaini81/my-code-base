@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="/qt-project.org/imports/QtQuick/Studio/DesignEffects/">
+    <file alias="DesignBackgroundBlurPrivate.qml">/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Debug/_deps/ds-src/src/imports/designeffects/DesignBackgroundBlurPrivate.qml</file>
+    <file alias="DesignDropShadow.qml">/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Debug/_deps/ds-src/src/imports/designeffects/DesignDropShadow.qml</file>
+    <file alias="DesignDropShadowPrivate.qml">/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Debug/_deps/ds-src/src/imports/designeffects/DesignDropShadowPrivate.qml</file>
+    <file alias="DesignEffect.qml">/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Debug/_deps/ds-src/src/imports/designeffects/DesignEffect.qml</file>
+    <file alias="DesignEffectPrivate.qml">/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Debug/_deps/ds-src/src/imports/designeffects/DesignEffectPrivate.qml</file>
+    <file alias="DesignInnerShadow.qml">/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Debug/_deps/ds-src/src/imports/designeffects/DesignInnerShadow.qml</file>
+    <file alias="DesignInnerShadowPrivate.qml">/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Debug/_deps/ds-src/src/imports/designeffects/DesignInnerShadowPrivate.qml</file>
+    <file alias="DesignLayerBlurPrivate.qml">/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Debug/_deps/ds-src/src/imports/designeffects/DesignLayerBlurPrivate.qml</file>
+  </qresource>
+</RCC>
+

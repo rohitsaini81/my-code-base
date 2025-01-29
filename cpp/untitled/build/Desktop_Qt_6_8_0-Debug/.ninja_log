@@ -1,0 +1,19 @@
+# ninja log v6
+3949	4224	1732770910219214435	untitled	e06ddd3f516514ba
+17	3949	1732770906286788487	CMakeFiles/untitled.dir/main.cpp.o	c9dacc3e067ee0df
+5	17	1732770906274787178	/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/Desktop_Qt_6_8_0-Debug/untitled_autogen/mocs_compilation.cpp	60698c3ae07cee15
+35	87	1732768800481841759	CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.o	17012cc193737917
+5	17	1732770906274787178	/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/Desktop_Qt_6_8_0-Debug/untitled_autogen/timestamp	60698c3ae07cee15
+5	17	1732770906274787178	untitled_autogen/mocs_compilation.cpp	60698c3ae07cee15
+5	17	1732770906274787178	untitled_autogen/timestamp	60698c3ae07cee15
+2	894	1732771137719228125	build.ninja	b615d702799b5c9b
+4	12	1732771141163374445	untitled_autogen/timestamp	60698c3ae07cee15
+4	12	1732771141163374445	untitled_autogen/mocs_compilation.cpp	60698c3ae07cee15
+4	12	1732771141163374445	/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/Desktop_Qt_6_8_0-Debug/untitled_autogen/timestamp	60698c3ae07cee15
+4	12	1732771141163374445	/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/Desktop_Qt_6_8_0-Debug/untitled_autogen/mocs_compilation.cpp	60698c3ae07cee15
+2	10	1732771246602975495	untitled_autogen/timestamp	60698c3ae07cee15
+2	10	1732771246602975495	untitled_autogen/mocs_compilation.cpp	60698c3ae07cee15
+2	10	1732771246602975495	/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/Desktop_Qt_6_8_0-Debug/untitled_autogen/timestamp	60698c3ae07cee15
+2	10	1732771246602975495	/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/Desktop_Qt_6_8_0-Debug/untitled_autogen/mocs_compilation.cpp	60698c3ae07cee15
+10	2299	1732771246610975712	CMakeFiles/untitled.dir/main.cpp.o	c9dacc3e067ee0df
+2299	2477	1732771248899037550	untitled	e06ddd3f516514ba

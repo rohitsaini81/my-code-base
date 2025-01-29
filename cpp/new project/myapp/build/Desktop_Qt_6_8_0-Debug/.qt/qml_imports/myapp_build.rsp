@@ -1,0 +1,9 @@
+-rootPath
+/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp
+-cmake-output
+-output-file
+/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Debug/.qt/qml_imports/myapp_build.cmake
+-importPath
+/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Debug
+-importPath
+/home/rohit/Qt/6.8.0/gcc_64/qml

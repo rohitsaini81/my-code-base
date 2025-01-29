@@ -1,0 +1,9 @@
+/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/untitled.dir
+/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/edit_cache.dir
+/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/rebuild_cache.dir
+/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/list_install_components.dir
+/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/install.dir
+/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/install/local.dir
+/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/install/strip.dir
+/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/untitled_autogen_timestamp_deps.dir
+/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/untitled_autogen.dir

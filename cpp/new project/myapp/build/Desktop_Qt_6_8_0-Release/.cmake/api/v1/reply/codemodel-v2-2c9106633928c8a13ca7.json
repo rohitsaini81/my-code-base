@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-f5cb25e043554489a23d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "myapp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "myapp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-myapp-Release-f49ba85e521a0d9568d9.json",
+					"name" : "myapp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "myapp_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-myapp_autogen-Release-af5b57a710634344d3b6.json",
+					"name" : "myapp_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "myapp_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-myapp_autogen_timestamp_deps-Release-48aa891b112240ed13ee.json",
+					"name" : "myapp_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "myapp_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-myapp_qmlimportscan-Release-be3ebaa20a88e940a6da.json",
+					"name" : "myapp_qmlimportscan",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Release",
+		"source" : "/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

@@ -1,0 +1,106 @@
+{
+	"BUILD_DIR" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/untitled_autogen",
+	"CMAKE_BINARY_DIR" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_LIST_FILES" : 
+	[
+		"/home/rohit/Desktop/Work/my-code-base/cpp/untitled/CMakeLists.txt",
+		"/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/3.29.6/CMakeSystem.cmake",
+		"/usr/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake",
+		"/usr/share/cmake-3.29/Modules/Platform/Linux-Initialize.cmake",
+		"/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake",
+		"/usr/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake",
+		"/usr/share/cmake-3.29/Modules/CMakeGenericSystem.cmake",
+		"/usr/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake",
+		"/usr/share/cmake-3.29/Modules/Platform/Linux.cmake",
+		"/usr/share/cmake-3.29/Modules/Platform/UnixPaths.cmake",
+		"/usr/share/cmake-3.29/Modules/CMakeCXXInformation.cmake",
+		"/usr/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake",
+		"/usr/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake",
+		"/usr/share/cmake-3.29/Modules/Compiler/GNU.cmake",
+		"/usr/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"/usr/share/cmake-3.29/Modules/Platform/Linux-GNU-CXX.cmake",
+		"/usr/share/cmake-3.29/Modules/Platform/Linux-GNU.cmake",
+		"/usr/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake",
+		"/usr/share/cmake-3.29/Modules/CMakeParseArguments.cmake",
+		"/usr/share/cmake-3.29/Modules/GNUInstallDirs.cmake"
+	],
+	"CMAKE_SOURCE_DIR" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled",
+	"CROSS_CONFIG" : false,
+	"DEP_FILE" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/untitled_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "untitled_autogen/timestamp",
+	"HEADERS" : [],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/untitled_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/untitled_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_NO_DEBUG" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/usr/include/x86_64-linux-gnu/qt5",
+		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
+		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/usr/include/c++/14",
+		"/usr/include/x86_64-linux-gnu/c++/14",
+		"/usr/include/c++/14/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/14/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu",
+		"/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/c++",
+		"-std=gnu++17",
+		"-dM",
+		"-E",
+		"-c",
+		"/usr/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/untitled_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 2,
+	"PARSE_CACHE_FILE" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/untitled_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 15,
+	"SETTINGS_FILE" : "/home/rohit/Desktop/Work/my-code-base/cpp/untitled/build/CMakeFiles/untitled_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/home/rohit/Desktop/Work/my-code-base/cpp/untitled/main.cpp",
+			"MU",
+			null
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

@@ -255,7 +255,6 @@ public class Test extends SimpleApplication{
         public void onAction(String name, boolean keyPressed, float tpf) {
 
 
-            if ()
 
 
                 if (name.equals("Space") && !keyPressed) {

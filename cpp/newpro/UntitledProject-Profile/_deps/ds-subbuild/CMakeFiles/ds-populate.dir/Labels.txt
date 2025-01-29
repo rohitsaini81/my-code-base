@@ -1,0 +1,14 @@
+# Target labels
+ ds-populate
+# Source files and their labels
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/CMakeFiles/ds-populate
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/CMakeFiles/ds-populate.rule
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/CMakeFiles/ds-populate-complete.rule
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-build.rule
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-configure.rule
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-download.rule
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-install.rule
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-mkdir.rule
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-patch.rule
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-test.rule
+/home/rohit/Desktop/Work/my-code-base/cpp/newpro/UntitledProject-Profile/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-update.rule

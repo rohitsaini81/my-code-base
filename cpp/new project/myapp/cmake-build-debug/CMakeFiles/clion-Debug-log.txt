@@ -1,0 +1,23 @@
+/home/rohit/clion-2024.2.3/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5 -S "/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp" -B "/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/cmake-build-debug"
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at /usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake:28 (find_package):
+  Could not find a package configuration file provided by "Qt5Quick" with any
+  of the following names:
+
+    Qt5QuickConfig.cmake
+    qt5quick-config.cmake
+
+  Add the installation prefix of "Qt5Quick" to CMAKE_PREFIX_PATH or set
+  "Qt5Quick_DIR" to a directory containing one of the above files.  If
+  "Qt5Quick" provides a separate development package or SDK, be sure it has
+  been installed.
+Call Stack (most recent call first):
+  CMakeLists.txt:13 (find_package)
+
+
+-- Configuring incomplete, errors occurred!

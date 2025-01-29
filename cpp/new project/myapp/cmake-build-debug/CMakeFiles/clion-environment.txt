@@ -1,0 +1,4 @@
+ToolSet: 1.0 (local)Ninja: 1.12.0@/home/rohit/clion-2024.2.3/bin/ninja/linux/x64/ninja
+Options: 
+
+Options:-DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
