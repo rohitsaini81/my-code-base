@@ -24,6 +24,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web' // Add this line
 	implementation 'org.postgresql:postgresql' // PostgreSQL driver
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA for database interaction
+	implementation 'com.mysql:mysql-connector-j:8.0.33'
 
 
 }
