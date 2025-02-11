@@ -14,13 +14,17 @@ class MyFunctions : public QObject
 
     public:QProcess process;
     // public:QString command = "pwd";
-    public:QString command = "/home/rohit/Desktop/Work/Titan/Titan Editor";
+    public:QString command = "/home/rohit/";
 
 
 public:
     explicit MyFunctions(QObject *parent = nullptr) : QObject(parent),counter(0) {}
 
-    Q_INVOKABLE void onButtonClick() {
+    Q_INVOKABLE void onButtonClick(QString App, bool isPath) {
+
+      if (isPath) {
+              command = command + App;
+      }else{command = App; }
         process.start(command);
         process.waitForFinished();
         QByteArray output = process.readAllStandardOutput();

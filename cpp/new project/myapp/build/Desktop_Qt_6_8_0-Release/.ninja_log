@@ -1,13 +1,23 @@
 # ninja log v6
 5	149	1732777510930257194	.qt/qml_imports/myapp_build.cmake	771c5d1aa5ed0761
 5	149	1732777510930257194	/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Release/.qt/qml_imports/myapp_build.cmake	771c5d1aa5ed0761
+792	3304	1732777511578268241	CMakeFiles/myapp.dir/myapp_autogen/mocs_compilation.cpp.o	2b24b09d3c5bd934
 149	777	1732777511554267832	myapp_autogen/timestamp	f2352496a3ca9f73
 149	777	1732777511554267832	myapp_autogen/mocs_compilation.cpp	f2352496a3ca9f73
 149	777	1732777511554267832	/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Release/myapp_autogen/timestamp	f2352496a3ca9f73
 149	777	1732777511554267832	/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Release/myapp_autogen/mocs_compilation.cpp	f2352496a3ca9f73
 780	792	1732777511574268173	myapp_autogen/EWIEGA46WW/qrc_qml.cpp	c73e49aae9425206
-780	792	1732777511574268173	/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Release/myapp_autogen/EWIEGA46WW/qrc_qml.cpp	c73e49aae9425206
-793	1032	1732777511578268241	CMakeFiles/myapp.dir/myapp_autogen/EWIEGA46WW/qrc_qml.cpp.o	eabaa8812a801b8e
-792	3304	1732777511578268241	CMakeFiles/myapp.dir/myapp_autogen/mocs_compilation.cpp.o	2b24b09d3c5bd934
 792	4045	1732777511578268241	CMakeFiles/myapp.dir/main.cpp.o	8049a4b1dc29a28e
 4045	4475	1732777514830323660	myapp	ee6c4888bd68e664
+780	792	1732777511574268173	/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Release/myapp_autogen/EWIEGA46WW/qrc_qml.cpp	c73e49aae9425206
+793	1032	1732777511578268241	CMakeFiles/myapp.dir/myapp_autogen/EWIEGA46WW/qrc_qml.cpp.o	eabaa8812a801b8e
+152	639	1738905650837633839	myapp_autogen/timestamp	f2352496a3ca9f73
+152	639	1738905650837633839	myapp_autogen/mocs_compilation.cpp	f2352496a3ca9f73
+152	639	1738905650837633839	/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Release/myapp_autogen/timestamp	f2352496a3ca9f73
+152	639	1738905650837633839	/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Release/myapp_autogen/mocs_compilation.cpp	f2352496a3ca9f73
+639	783	1738905650985637301	myapp_autogen/EWIEGA46WW/qrc_qml.cpp	c73e49aae9425206
+639	783	1738905650985637301	/home/rohit/Desktop/Work/my-code-base/cpp/new project/myapp/build/Desktop_Qt_6_8_0-Release/myapp_autogen/EWIEGA46WW/qrc_qml.cpp	c73e49aae9425206
+784	1349	1738905650989637394	CMakeFiles/myapp.dir/myapp_autogen/EWIEGA46WW/qrc_qml.cpp.o	eabaa8812a801b8e
+783	3257	1738905650989637394	CMakeFiles/myapp.dir/myapp_autogen/mocs_compilation.cpp.o	2b24b09d3c5bd934
+784	3693	1738905650989637394	CMakeFiles/myapp.dir/main.cpp.o	8049a4b1dc29a28e
+3693	4142	1738905653897705444	myapp	ee6c4888bd68e664

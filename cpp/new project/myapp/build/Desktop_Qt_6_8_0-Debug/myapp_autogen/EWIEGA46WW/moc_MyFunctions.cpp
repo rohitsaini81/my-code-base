@@ -37,7 +37,9 @@ struct qt_meta_stringdata_CLASSMyFunctionsENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSMyFunctionsENDCLASS = QtMocHelpers::stringData(
     "MyFunctions",
     "onButtonClick",
-    ""
+    "",
+    "App",
+    "isPath"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -58,10 +60,10 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMyFunctionsENDCLASS[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   20,    2, 0x02,    1 /* Public */,
+       1,    2,   20,    2, 0x02,    1 /* Public */,
 
  // methods: parameters
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::Bool,    3,    4,
 
        0        // eod
 };
@@ -76,7 +78,9 @@ Q_CONSTINIT const QMetaObject MyFunctions::staticMetaObject = { {
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<MyFunctions, std::true_type>,
         // method 'onButtonClick'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>
     >,
     nullptr
 } };
@@ -87,11 +91,10 @@ void MyFunctions::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<MyFunctions *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->onButtonClick(); break;
+        case 0: _t->onButtonClick((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *MyFunctions::metaObject() const

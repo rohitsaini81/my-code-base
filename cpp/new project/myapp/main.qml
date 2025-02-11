@@ -43,7 +43,7 @@ Window {
 
         onClicked: {
                     // Call the C++ function on button click
-                    myFunctions.onButtonClick();
+                    myFunctions.onButtonClick("Desktop/Work/Titan/Titan Editor",true);
                 }
 
     }
@@ -65,6 +65,7 @@ Window {
 
 
         onClicked: {
+            myFunctions.onButtonClick("idea-IC-241.18034.62/bin/idea.sh",true);
                 if (displayText.text === "Hello, World!") {
                     displayText.text = "Intellije Ide!";
                 } else {
@@ -86,6 +87,7 @@ Window {
 
 
         onClicked: {
+            myFunctions.onButtonClick("clion-2024.2.3/bin/clion",true);
                 if (displayText.text === "Hello, World!") {
                     displayText.text = "Clion Ide!";
                 } else {
@@ -106,6 +108,7 @@ Window {
 
 
         onClicked: {
+            myFunctions.onButtonClick("android-studio/bin/studio.sh",true);
                 if (displayText.text === "Hello, World!") {
                     displayText.text = "Android Studio !";
                 } else {
@@ -126,18 +129,23 @@ Window {
                 implicitHeight: 20   // Set height explicitly
 
 
+        // onClicked: {
+        //         if (displayText.text === "Hello, World!") {
+        //             displayText.text = "Blender Studio !";
+        //         } else {
+        //             displayText.text = "Hello, World!";
+        //         }
+        // }
+
         onClicked: {
-                if (displayText.text === "Hello, World!") {
-                    displayText.text = "Blender Studio !";
-                } else {
-                    displayText.text = "Hello, World!";
-                }
+            // Call the C++ function on button click
+            myFunctions.onButtonClick("blender-4.2.1-linux-x64/blender",true);
         }
     }
 
     Button {
         id:ida
-        text: "DA Freeware 8.4. !"
+        text: "IDA Freeware 8.4. !"
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: bs.bottom
                 height: 40           // Explicitly set height
@@ -148,6 +156,7 @@ Window {
 
 
         onClicked: {
+            myFunctions.onButtonClick("idafree-8.4/ida64",true);
                 if (displayText.text === "Hello, World!") {
                     displayText.text = "DA Freeware 8.4. !";
                 } else {
@@ -169,6 +178,8 @@ Window {
 
 
         onClicked: {
+            myFunctions.onButtonClick("jmonkeyplatform/bin/jmonkeyplatform",true);
+
                 if (displayText.text === "Hello, World!") {
                     displayText.text = "JMonkey!";
                 } else {
@@ -177,11 +188,38 @@ Window {
         }
     }
 
+
+    Button {
+        id:nv
+        text: "NeoVide!"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: jm.bottom
+        height: 40           // Explicitly set height
+        width: 100           // Explicitly set width
+        padding: 5           // Remove or reduce padding
+        implicitWidth: 100   // Set width explicitly
+        implicitHeight: 20   // Set height explicitly
+
+
+        // onClicked: {
+        //     if (displayText.text === "Hello, World!") {
+        //         displayText.text = "NeoVide !";
+        //     } else {
+        //         displayText.text = "Hello, World!";
+        //     }
+        // }
+
+        onClicked: {
+            myFunctions.onButtonClick("neovide",false);
+        }
+    }
+
+
     Button {
         id:code
         text: "Visual Studio Code !"
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: jm.bottom
+                anchors.top: nv.bottom
                 height: 40           // Explicitly set height
                 width: 100           // Explicitly set width
                 padding: 5           // Remove or reduce padding
@@ -190,12 +228,14 @@ Window {
 
 
         onClicked: {
+            myFunctions.onButtonClick("code",false);
                 if (displayText.text === "Hello, World!") {
                     displayText.text = "Visual Studio Code !";
                 } else {
                     displayText.text = "Hello, World!";
                 }
         }
+
     }
 
 }
